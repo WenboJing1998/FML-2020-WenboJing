@@ -87,7 +87,7 @@ for (j in 1:10) {
   }
 }
 
-iter <- which.min(lapply(accuarcy_CV, sum))
+iter <- 100 * which.min(apply(accuarcy_CV, 2, mean))
 
 Ada_result <- Adaboost(base_learners, trainingset[ ,1:7], trainingset[ ,8], 
                        iter, testset[ ,1:7], testset[ ,8]) 
@@ -152,6 +152,7 @@ for (j in 1:10) {
   }
 }
 
-iter <- which.min(lapply(accuarcy_CV_Log , sum))
+iter <- 100 * which.min(apply(accuarcy_CV_Log, 2, mean))
+
 Log_result <- LogBoost(base_learners, trainingset[ ,1:7], trainingset[ ,8], 
                        iter, testset[ ,1:7], testset[ ,8]) 
